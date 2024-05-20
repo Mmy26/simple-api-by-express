@@ -3,8 +3,12 @@ const express = require("express");
 const app = express();
 const PORT = 8000;
 
+const object = {
+  text: "hello world!",
+};
+
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send(object);
 });
 
 app.get("/about", (req, res) => {
