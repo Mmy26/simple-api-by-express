@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 const PORT = 8000;
@@ -7,11 +8,11 @@ const object = {
   text: "hello world!",
 };
 
-app.get("/", (req, res) => {
+app.get("/", cors(), (req, res) => {
   res.send(object);
 });
 
-app.get("/about", (req, res) => {
+app.get("/about", cors(), (req, res) => {
   res.send("About route 🎉 ");
 });
 
