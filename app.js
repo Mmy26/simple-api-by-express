@@ -3044,6 +3044,21 @@ const object = {
   },
 };
 
+app.use(
+  "/youtube-reviewer",
+  cors(),
+  (() => {
+    const router = express.Router();
+    router.use("/most-popular", require("./routes/mostPopular10ForYouTube.js"));
+    router.use("/channel1", require("./routes/channels1.js"));
+    router.use("/channel2", require("./routes/channels2.js"));
+    router.use("/channel3", require("./routes/channels3.js"));
+    router.use("/channel4", require("./routes/channels4.js"));
+    router.use("/channel5", require("./routes/channels5.js"));
+    return router;
+  })()
+);
+
 app.get("/", cors(), (req, res) => {
   res.send(object);
 });
